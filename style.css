@@ -1,0 +1,350 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f7f8;
+  --bg-tertiary: #ffffff;
+  --text-primary: #212121;
+  --text-secondary: #6e6e80;
+  --border-color: #e5e5e5;
+  --button-bg: #6b7280;
+  --button-hover: #4b5563;
+  --input-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #343541;
+    --bg-secondary: #40414f;
+    --bg-tertiary: #444654;
+    --text-primary: #ececf1;
+    --text-secondary: #8e8ea0;
+    --border-color: #565869;
+    --button-bg: #6b7280;
+    --button-hover: #4b5563;
+    --input-bg: #40414f;
+    --shadow: rgba(0, 0, 0, 0.3);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+}
+
+#secaochaveapi {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#secaochaveapi label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+#chaveApi {
+  width: 400px;
+  max-width: 60%;
+  padding: 0.75rem 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+#chaveApi:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.1);
+}
+
+#chaveApi::placeholder {
+  color: var(--text-secondary);
+}
+
+main {
+  flex: 1;
+  max-width: 768px;
+  margin: 150px auto 120px auto;
+  padding: 2rem 1rem;
+  width: 100%;
+  min-height: calc(100vh - 270px);
+}
+
+#secao-resposta {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+#secao-resposta h2 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+#resposta {
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+#secaochavepergunta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem;
+  z-index: 999;
+  max-width: 768px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#secaochavepergunta label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+#pergunta {
+  width: 100%;
+  min-height: 60px;
+  max-height: 150px;
+  padding: 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+#pergunta:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.1);
+}
+
+#pergunta::placeholder {
+  color: var(--text-secondary);
+}
+
+#botaoPerguntar {
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+  float: right;
+}
+
+#botaoPerguntar:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.2);
+}
+
+#botaoPerguntar:active {
+  transform: translateY(0);
+}
+
+#botaoPerguntar:disabled {
+  background-color: var(--text-secondary);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #secaochaveapi {
+    padding: 1rem 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  #secaochaveapi label {
+    text-align: center;
+  }
+
+  #chaveApi {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  main {
+    margin: 140px 0.5rem 140px 0.5rem;
+    padding: 1rem;
+  }
+
+  #secaochavepergunta {
+    padding: 1rem;
+    left: 0;
+    right: 0;
+    transform: none;
+    max-width: none;
+  }
+
+  #pergunta {
+    min-height: 50px;
+  }
+
+  #botaoPerguntar {
+    float: none;
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #botaoPerguntar {
+    width: 100%;
+    float: none;
+  }
+
+  main {
+    margin: 130px 0.25rem 120px 0.25rem;
+  }
+}
+
+/* Estados de foco melhorados */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid var(--button-bg);
+  outline-offset: 2px;
+}
+
+/* Estilo para textos de código na resposta */
+#resposta code {
+  background-color: var(--bg-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 0.9em;
+  border: 1px solid var(--border-color);
+}
+
+#resposta pre {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+}
+
+#resposta pre code {
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+/* Estilo para listas na resposta */
+#resposta ul,
+#resposta ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+#resposta li {
+  margin: 0.5rem 0;
+}
