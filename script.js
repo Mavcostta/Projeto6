@@ -1,4 +1,3 @@
-// apiKey = "AIzaSyARz9SVBbErGgjhIv2HzuiZgEukP5zj54Q"; 
 
     async function consultarGemini() {
       const pergunta = document.getElementById("pergunta").value;
