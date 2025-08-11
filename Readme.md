@@ -2,6 +2,10 @@
 
 Um assistente de Inteligência Artificial simples que interage com a **API Gemini** da Google, permitindo ao usuário fazer perguntas e receber respostas diretamente no navegador.
 
+# Link da página para teste
+
+- https://mavcostta.github.io/Projeto6/
+
 ## 📌 Funcionalidades
 
 - Inserir **Chave de API** diretamente na interface.
