@@ -1,3 +1,4 @@
+/* feito por Manu e Lorena */
 * {
   margin: 0;
   padding: 0;
@@ -154,17 +155,24 @@ main {
   margin: 0 auto;
   left: 50%;
   transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr auto; 
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+    "label label"
+    "pergunta botao";
+  gap: 1rem;
 }
 
 #secaochavepergunta label {
-  display: block;
-  margin-bottom: 0.75rem;
+  grid-area: label ;
   font-weight: 500;
   color: var(--text-primary);
   font-size: 1rem;
 }
 
 #pergunta {
+  grid-area: pergunta;
   width: 100%;
   min-height: 60px;
   max-height: 150px;
@@ -177,8 +185,6 @@ main {
   font-family: inherit;
   resize: vertical;
   transition: all 0.2s ease;
-  margin-bottom: 1rem;
-  display: block;
 }
 
 #pergunta:focus {
@@ -192,6 +198,7 @@ main {
 }
 
 #botaoPerguntar {
+  grid-area: botao;
   background-color: var(--button-bg);
   color: white;
   border: none;
@@ -202,7 +209,6 @@ main {
   cursor: pointer;
   transition: all 0.2s ease;
   min-width: 140px;
-  float: right;
 }
 
 #botaoPerguntar:hover {
@@ -249,7 +255,6 @@ main {
   background: var(--text-secondary);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   #secaochaveapi {
     padding: 1rem 0.5rem;
@@ -305,7 +310,6 @@ main {
   }
 }
 
-/* Estados de foco melhorados */
 input:focus,
 textarea:focus,
 button:focus {
@@ -313,7 +317,6 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Estilo para textos de código na resposta */
 #resposta code {
   background-color: var(--bg-secondary);
   padding: 0.2em 0.4em;
@@ -338,7 +341,6 @@ button:focus {
   border: none;
 }
 
-/* Estilo para listas na resposta */
 #resposta ul,
 #resposta ol {
   margin: 1rem 0;
