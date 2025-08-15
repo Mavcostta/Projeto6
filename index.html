@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>IA DEVersidade</h1>
+    <img id="cabecalho-img" src="./assets/DEVersidadeIA.png" alt="">
   </header>
 
   <main>
@@ -18,18 +18,18 @@
     </section>
 
     <section id="secaochavepergunta">
-      <label for="pergunta">Pergunta:</label>
+      <label for="pergunta">Faça uma pergunta 😀:</label>
       <textarea id="pergunta" placeholder="Digite sua pergunta..."></textarea>
-      <button id="botaoPerguntar">Perguntar</button>
+      <button id="botaoPerguntar" onclick="consultarGemini()">Perguntar</button>
     </section>
 
     <section id="secao-resposta" style="display: none;">
-      <h2>Resposta da IA:</h2>
+      <!-- <h2>Resposta da IA:</h2> -->
       <div id="resposta"></div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
 <!-- HTML feito e revisado por Vitória Costa e Gustavo Valladares-->
