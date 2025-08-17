@@ -1,5 +1,48 @@
+// Seleciona os novos botões
+const botaoLimpar = document.getElementById("botaoLimpar");
+const botaoCopiar = document.getElementById("botaoCopiar");
 
-    async function consultarGemini() {
+// Cria a div de feedback de cópia
+const feedbackCopiar = document.createElement('div');
+feedbackCopiar.className = 'feedback-copiar';
+feedbackCopiar.innerText = 'Resposta copiada!';
+document.body.appendChild(feedbackCopiar);
+
+// 01 - Funcionalidade "Limpar Resposta"
+botaoLimpar.addEventListener("click", () => {
+// Confirmar ação antes de limpar
+const confirmar = confirm("Tem certeza que deseja limpar a resposta?");
+if (confirmar) {
+document.getElementById("pergunta").value = "";
+document.getElementById("resposta").innerText = "";
+document.getElementById("secao-resposta").style.display = "none";
+}
+});
+
+// 02 - Funcionalidade "Copiar Resposta"
+botaoCopiar.addEventListener("click", () => {
+const respostaTexto = document.getElementById("resposta").innerText;
+
+if (navigator.clipboard) {
+navigator.clipboard.writeText(respostaTexto)
+.then(() => {
+// Feedback visual de sucesso
+feedbackCopiar.classList.add('show');
+setTimeout(() => {
+feedbackCopiar.classList.remove('show');
+}, 2000);
+})
+.catch(err => {
+// Tratamento de erro
+alert("Erro ao copiar a resposta: " + err);
+});
+} else {
+// Tratamento de erro se a API não estiver disponível
+alert("Seu navegador não suporta a API de cópia.");
+}
+});
+
+async function consultarGemini() {
       const pergunta = document.getElementById("pergunta").value;
       const respostaDiv = document.getElementById("resposta");
       const apiKey = document.getElementById("chaveApi").value;
@@ -29,3 +72,4 @@
   
 
     // Código acima feito por Maíra Kaminski & Rui Gomes
+    // Novas funcionalidades por Lô Gurgel
