@@ -349,3 +349,50 @@ button:focus {
 #resposta li {
   margin: 0.5rem 0;
 }
+/* Novos estilos adicionados para os botões e feedback */
+.botoes-resposta {
+display: flex;
+justify-content: flex-end;
+gap: 1rem;
+margin-top: 1rem;
+}
+
+.botoes-resposta button {
+background-color: var(--button-bg);
+color: white;
+border: none;
+padding: 0.75rem 1.5rem;
+border-radius: 8px;
+font-size: 0.9rem;
+font-weight: 500;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+
+.botoes-resposta button:hover {
+background-color: var(--button-hover);
+transform: translateY(-1px);
+box-shadow: 0 2px 6px rgba(107, 114, 128, 0.2);
+}
+
+.botoes-resposta button:active {
+transform: translateY(0);
+}
+
+.feedback-copiar {
+position: fixed;
+bottom: 1.5rem;
+left: 50%;
+transform: translateX(-50%);
+background-color: #28a745;
+color: white;
+padding: 10px 20px;
+border-radius: 8px;
+z-index: 2000;
+opacity: 0;
+transition: opacity 0.5s ease-in-out;
+}
+
+.feedback-copiar.show {
+opacity: 1;
+}
