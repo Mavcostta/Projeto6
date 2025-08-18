@@ -1,3 +1,6 @@
+//pegar o textarea
+const textarea= document.getElementById("pergunta")
+
 // Seleciona os novos botões
 const botaoLimpar = document.getElementById("botaoLimpar");
 const botaoCopiar = document.getElementById("botaoCopiar");
@@ -42,7 +45,15 @@ alert("Seu navegador não suporta a API de cópia.");
 }
 });
 
-async function consultarGemini() {
+textarea.addEventListener("keydown",(e)=>{
+          if(e.key==="Enter" && !e.shiftKey){
+            e.preventDefault();
+            document.getElementById("botaoPerguntar").click();
+          }
+      })
+async function consultarGemini(event) {
+      event.preventDefault();
+      
       const pergunta = document.getElementById("pergunta").value;
       const respostaDiv = document.getElementById("resposta");
       const apiKey = document.getElementById("chaveApi").value;
@@ -68,6 +79,8 @@ async function consultarGemini() {
       } catch (erro) {
         respostaDiv.innerText = "Erro: " + erro.message;
       }
+
+      
     }
   
 

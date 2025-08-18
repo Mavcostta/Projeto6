@@ -18,9 +18,13 @@
     </section>
 
     <section id="secaochavepergunta">
-      <label for="pergunta">Pergunta:</label>
-      <textarea id="pergunta" placeholder="Digite sua pergunta..."></textarea>
-      <button id="botaoPerguntar" onclick="consultarGemini()">Perguntar</button>
+      <form action="" method="get" onsubmit="consultarGemini(event)">
+        
+        <label for="pergunta">Pergunta:</label>
+        <textarea id="pergunta" placeholder="Digite sua pergunta..."></textarea>
+        <button id="botaoPerguntar" type="submit">Perguntar</button>
+      </form>
+      
     </section>
 
     <section id="secao-resposta" style="display: none;">
